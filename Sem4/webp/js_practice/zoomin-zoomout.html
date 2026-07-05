@@ -1,0 +1,49 @@
+<html>
+	<head>
+ 		<title>Basic Animations Part 2 - scaling</title>
+		
+	</head>
+	<body>
+		<br>
+		<br>
+		<img onmouseover="increase()" onmouseout="decrease()" id="img1" src="./heart.png" style="width: 100;"/>
+
+        <script type="text/javascript">
+		
+            var width=100;
+            var difference=2;
+            var interveralID =0;
+            console.log(document.getElementById("img1").style.width);
+            
+            function increase(){
+                clearInterval(interveralID);
+                interveralID=setInterval(expand,1);
+            }
+            function decrease(){
+                clearInterval(interveralID);
+                interveralID=setInterval(shrink,1);
+            }
+            function expand(){
+                if(width<200){
+                    width = width+difference;
+                    document.getElementById("img1").style.width=width;
+                    console.log(width);
+                }
+                else{
+                    clearInterval(interveralID);
+                }
+            }
+            function shrink(){
+                if(width>100){
+                    width = width-difference;
+                    document.getElementById("img1").style.width=width;
+                    console.log(width);
+                }
+                else{
+                    clearInterval(interveralID);
+                }
+            }
+            </script>
+	</body>
+
+</html>

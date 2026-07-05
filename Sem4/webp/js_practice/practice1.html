@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Form Validation pt 1</title>
+</head>
+<body>
+    <form onsubmit="return validate();">
+        <label for="username">Enter your username: </label>
+        <input type="text" id="username" name="username">
+
+        <label for="gender">Select your gender:</label>
+        <input type="radio" name="gender" value="Male">Male<br>
+        <input type="radio" name="gender" value="Female">Female<br>
+        <input type="submit" value="submit" name="submit">
+
+    </form>
+
+    <script>
+        
+        function validate()
+        {
+            event.preventDefault();
+            const username=document.getElementById("username").value;
+
+            console.log(username);
+            if(username.trim().length ===0){
+                alert("Enter a valid username");
+                return false;
+            }
+            if(username.length<5)
+            {
+                alert("Username should be at least 10 characters length");
+                return false;
+            }
+            
+            return true;
+        }
+    </script>
+</body>
+</html>

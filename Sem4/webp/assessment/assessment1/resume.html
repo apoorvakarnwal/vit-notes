@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Apoorva Karnwal - Resume</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 15px;
+            background-color: #eae7d7;
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            color: #555;
+        }
+        .resume-pdf {
+            width: 80%; 
+            max-width: 100%;
+        }
+        .container{
+            margin-top: 80px;
+            container: fadeIn 1s ease-in-out forwards;
+        }
+        .resume-link {
+            margin-top: 20px;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="menu.css">
+</head>
+<body>
+    <div class="menu">
+        <div class="sub-menu">
+            <div class="left-menu">
+                <a href="index.html">Apoorva Karnwal</a>
+            </div>
+            
+            <div class="center-menu">
+                <a href="about.html">About Me</a>
+                <a href="portfolio.html">Portfolio</a>
+                <a href="skills.html">Skills</a>
+                <a href="testimonials.html">Testimonials</a>
+            </div>
+        </div>
+        <div class="right-menu">
+            <a class="logo-link" href="https://github.com/apoorvakarnwal"><img class="logo-img" src="github-logo.png"></a>
+            <a class="logo-link" href="https://www.linkedin.com/in/apoorva-karnwal/"><img class="logo-img" src="linked-inlogo.png"></a>
+            <a class="resume" href="resume.html">Resume</a>
+        </div>
+    </div>
+    
+    <div class="container">
+        <h1>Resume</h1>
+        <embed class="resume-pdf" src="Resume.pdf" type="application/pdf" width="80%" height="700px" />
+        <div class="resume-link">
+            <p>Download resume as PDF: <a href="Resume.pdf" download="Apoorva_Karnwal_Resume.pdf">Download PDF</a></p>
+        </div>
+    </div>
+    
+
+</body>
+</html>

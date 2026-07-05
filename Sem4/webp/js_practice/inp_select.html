@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <select id="payment-method" name="payment-method" required>
+            <option value="" disabled selected>Select Payment Method</option>
+            <option value="credit-card">Credit Card</option>
+            <option value="debit-card">Debit Card</option>
+    </select>
+    <br>
+    <br>
+
+    <input type="submit" value="Submit" onclick="func();">
+    <script>
+        function func(){
+            var selectValue=document.getElementById('payment-method');
+            alert(`selected value is ${selectValue.value}`)
+        }
+    </script>
+</body>
+</html>

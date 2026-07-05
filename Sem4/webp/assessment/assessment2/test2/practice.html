@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style>
+        .myform{
+            max-width: 500px;
+            padding: 20px;
+            margin: 0px auto;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        input{
+            padding: 5px 10px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="myform">
+        <form id="form" onsubmit="return validate();">
+            <h1>Athelete Registration Camp</h1>
+
+            <label for="parentname">Parent Name: </label>
+            <br><br>
+            <input onchange="funconchange();" type="text" name="parentname" id="pfname">
+            <input type="text" name="parentname" id="plname">
+
+            <br>
+            <div id="parent"></div>
+            <br>
+            <label for="atheletename">Athelete Name: </label>
+            <br><br>
+            <input type="text" name="atheletename" id="afname">
+            <input type="text" name="atheletename" id="alname">
+
+            <br><br>
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email">
+            <br><br>
+            <label for="tel">Phone Number:</label>
+            <input type="tel" name="tel" id="tel">
+            <br><br>
+            <label for="age">Age and Time: </label>
+            <br>
+            <input type="radio" name="age" id="young" value="young">
+            <label for="young">11 years and younger</label>
+            <br>
+            <input type="radio" name="age" id="old" value="old">
+            <label for="old">12 years and older</label>
+
+            <div class="submit-form">
+                <input type="submit" value="SUBMIT FORM">
+            </div>
+
+            <div id="response"></div>
+        </form>
+    </div>
+
+    <script>
+        function funconchange(){
+            document.getElementById('parent').innerHTML=document.getElementById('pfname').value;
+        }
+        function validate(){
+            event.preventDefault();
+            var pfname=document.getElementById('pfname').value;
+            var plname=document.getElementById('plname').value;
+            var afname=document.getElementById('afname').value;
+            var alname=document.getElementById('alname').value;
+            var email=document.getElementById('email').value;
+            var phone=document.getElementById('tel').value;
+            const age=document.getElementsByName('age');
+
+            let selectedAge='';
+            let foundAge=false;
+            for(i of age){
+                if(i.checked){
+                    foundAge=true;
+                    selectedAge=i.value;
+                }
+            }
+            if(!pfname || !plname ||!afname || !alname ||!email || !phone ||!foundAge){
+                alert("Please fill all the input fields");
+                return false;
+            }
+            let message='';
+            let time=''
+            let fee=0;
+            if(selectedAge=='old'){
+                fee=750;
+            }
+            else{
+                fee=500;
+            }
+            message=`Thanks for registrating with us. The fee is ${fee}`;
+            document.getElementById('response').innerHTML=message;
+            document.getElementById('form').reset();
+
+            return true;
+
+        }
+        
+    </script>
+</body>
+</html>

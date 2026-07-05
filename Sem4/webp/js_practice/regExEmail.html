@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Registration</title>
+
+    <style>
+        body{
+            padding: 5px 20px;
+        }
+        #myf{
+            padding: 20px;
+            background-color: rgba(98, 241, 241, 0.535);
+            margin: 50px auto;
+            max-width: 500px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0,0.1);
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body>
+    <form id="myf" onsubmit="return validate();">
+        <h1>Event Registration</h1>
+        <label for="mail">Email: </label>
+        <input type="text" name="mail" id="mail">
+        <span id="txt"></span>
+        <br><br>
+        <input type="submit" name="submit" id="submit" >
+        
+    </form>
+
+    <script>
+        var nameEvent=document.getElementById("mail");
+        
+        var regex=/^(\w+)@(\w+).(\w+)$/;
+        nameEvent.addEventListener("change", ()=>{
+            var name=document.getElementById("mail").value;
+            if(!(regex.test(name))){
+                document.getElementById("txt").style.visibility="visible";
+                document.getElementById("txt").innerHTML="InValid";
+                document.getElementById("txt").style.color="red";
+
+            }
+            else{
+                console.log("valid");
+                document.getElementById("txt").style.visibility="visible";
+                document.getElementById("txt").style.color="green";
+                document.getElementById("txt").innerHTML="Valid";
+            }
+        });
+
+        function validate(){
+            var name=document.getElementById("mail").value;
+            if(!(regex.test(name))){
+                document.getElementById("txt").style.visibility="visible";
+                document.getElementById("txt").innerHTML="InValid";
+                document.getElementById("txt").style.color="red";
+                return false;
+            }
+            else{
+                console.log("valid");
+                document.getElementById("txt").style.visibility="visible";
+                document.getElementById("txt").style.color="green";
+                document.getElementById("txt").innerHTML="Valid";
+            }
+
+            return true;
+        }
+    </script>
+</body>
+</html>

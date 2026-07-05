@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <label for="alp"></label>
+    <input type="text" name="alp" id="alp">
+    <input type="submit" onclick="fn1();" value="Submit">
+
+    <script>
+        function fn1(){
+            var alp=document.getElementById('alp').value;
+            if (!alp){
+                alert('Form fields are not submitted');
+            }
+        }
+    </script>
+</body>
+</html>

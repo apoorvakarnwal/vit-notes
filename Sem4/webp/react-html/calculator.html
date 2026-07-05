@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .calculator {
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+
+        const { useState } = React;
+
+        function Calculator() {
+            const [input1, setInput1] = useState('');
+            const [input2, setInput2] = useState('');
+            const [result, setResult] = useState('');
+
+            const handleCalculate = (operator) => {
+                const num1 = parseFloat(input1);
+                const num2 = parseFloat(input2);
+
+                switch (operator) {
+                    case '+':
+                        setResult(num1 + num2);
+                        break;
+                    case '-':
+                        setResult(num1 - num2);
+                        break;
+                    case '*':
+                        setResult(num1 * num2);
+                        break;
+                    case '/':
+                        setResult(num1 / num2);
+                        break;
+                    default:
+                        setResult('Error');
+                        break;
+                }
+            };
+
+            return (
+                <div className="calculator">
+                    <input
+                        className="input"
+                        type="text"
+                        value={input1}
+                        placeholder="Enter number"
+                        onChange={(e) => setInput1(e.target.value)}
+                    />
+                    <input
+                        className="input"
+                        type="text"
+                        value={input2}
+                        placeholder="Enter number"
+                        onChange={(e) => setInput2(e.target.value)}
+                    />
+                    <div>
+                        <button className="button" onClick={() => handleCalculate('+')}>+</button>
+                        <button className="button" onClick={() => handleCalculate('-')}>-</button>
+                        <button className="button" onClick={() => handleCalculate('*')}>*</button>
+                        <button className="button" onClick={() => handleCalculate('/')}>/</button>
+                    </div>
+                    <div>
+                        <h4>Result: {result}</h4>
+                    </div>
+                </div>
+            );
+        }
+        ReactDOM.render(<Calculator />, document.getElementById('root'));
+    </script>
+</body>
+</html>

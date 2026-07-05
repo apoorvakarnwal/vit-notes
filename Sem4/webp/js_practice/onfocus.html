@@ -1,0 +1,48 @@
+<html>
+
+<head>
+    <title>Form with onFocus Event</title>
+    <style>
+        .instruction {
+            color: #999;
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Registration Form</h2>
+
+    <form>
+        <div>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" onfocus="displayInstruction('usernameInstruction')"
+                required>
+            <p id="usernameInstruction" class="instruction">Please enter a unique username.
+            </p>
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" onfocus="displayInstruction('passwordInstruction')"
+                required>
+            <p id="passwordInstruction" class="instruction">Please enter a strong password.
+            </p>
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" onfocus="displayInstruction('emailInstruction')" required>
+            <p id="emailInstruction" class="instruction">Please enter a valid email address.
+            </p>
+        </div>
+        <button type="submit">Register</button>
+    </form>
+
+    <script>
+        function displayInstruction(instructionId) {
+            var instruction = document.getElementById(instructionId);
+            instruction.style.display = 'block';
+        }
+    </script>
+</body>
+
+</html>

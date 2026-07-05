@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="">
+        <h1>Vehicle Insurance Claim</h1>
+        <br><br>
+        <div>
+            <div>
+                <label for="fname">First Name</label>
+                <br>
+                <input type="text" name="fname" id="fname">
+            </div>
+            <div>
+                <label for="lname">Last Name</label>
+                <br>
+                <input type="text" name="lname" id="lname">
+            </div>
+        </div>
+        <br><br>
+        <label for="phone">Phone Number</label>
+        <br>
+        <input type="tel" name="phone" id="phone">
+        <br><br>
+        <label for="email">Registered Email</label>
+        <br>
+        <input type="email" name="email" id="email">
+        <br><br>
+        <div>
+            <div>
+                <label for="claim">Want to Claim Full Insurance ? </label>
+            </div>
+            <div>
+                <input type="radio" name="claim" id="yes">
+                <label for="yes">Yes</label>
+                <br>
+                <input type="radio" name="claim" id="no">
+                <label for="no">No</label>
+            </div>
+        </div>
+
+        <div id="claimIns" style="display:none;">
+            <label for="aci">Accident Date : </label>
+            <input type="date" name="aci" id="aci">
+            <br><br>
+            <label for="typ">Vehicle Type : </label>
+            <select name="typ" id="typ">
+                <option value="0" disabled selected>-Select-Option-</option>
+                <option value="car">4-Wheeler</option>
+                <option value="truck">Truck</option>
+                <option value="bike">2-Wheeler</option>
+            </select>
+            <br><br>
+            <label for="file">Give the proof for file[image only]</label>
+            <input type="file" name="file" id="file">
+            <br><br>
+        </div>
+    </form>
+
+    <script>
+        const claimIns = document.getElementById('claimIns');
+        const yes = document.getElementById('yes');
+        yes.addEventListener('change', () => {
+            if (yes.checked) {
+                claimIns.style.display = "block";
+            } else {
+                claimIns.style.display = "none";
+            }
+        });
+
+        const no=document.getElementById('no');
+        no.addEventListener('change', function(){
+            if (no.checked) {
+                claimIns.style.display = "none";
+            } 
+        })
+    </script>
+</body>
+</html>

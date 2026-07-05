@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" name="" id="" value="Start" onclick="start();"><br>
+    <p id="msg"> Some Text </p>
+    <input type="button" name="" id="" value="Stop" onclick="stop();">
+
+
+    <script>
+        // id=0
+        // function prntmsg(){
+        //     document.getElementById('msg').innerHTML="5 sec have passed";
+        // }
+        // function start(){
+        //     id=window.setTimeout(prntmsg,3000);
+        // }
+        // function stop(){
+        //     window.clearTimeout(id);
+        // }
+        var id=0
+        var seconds = 0;
+        function prntmsg(){
+            document.getElementById('msg').innerHTML= seconds+ "seconds";
+            seconds++;
+        }
+        function start(){
+            id=window.setInterval(prntmsg,1000);
+        }
+        function stop(){
+            window.clearInterval(id);
+        }
+    </script>
+</body>
+</html>

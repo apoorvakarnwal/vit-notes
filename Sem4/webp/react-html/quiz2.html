@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React Quiz</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      .quiz {
+        border: 1px solid #ccc;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .question {
+        margin-bottom: 10px;
+      }
+
+      .button {
+        font-size: 16px;
+        padding: 10px 20px;
+        margin-top: 10px;
+        cursor: pointer;
+        background-color: #f0f0f0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      .button:hover {
+        background-color: #e0e0e0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+      const { useState } = React;
+
+      function Quiz() {
+        const [answer1, setAnswer1] = useState("");
+        const [answer2, setAnswer2] = useState("");
+        const [answer3, setAnswer3] = useState("");
+        const [result1, setResult1] = useState("");
+        const [result2, setResult2] = useState("");
+        const [result3, setResult3] = useState("");
+        const [score, setScore] = useState(0);
+        const [answeredCorrectly1, setAnsweredCorrectly1] = useState(false);
+        const [answeredCorrectly2, setAnsweredCorrectly2] = useState(false);
+        const [answeredCorrectly3, setAnsweredCorrectly3] = useState(false);
+
+        const checkAnswer = (questionNumber) => {
+          let answer;
+          let setResult;
+          let setAnsweredCorrectly;
+          switch (questionNumber) {
+            case 1:
+              answer = answer1.toLowerCase();
+              setResult = setResult1;
+              setAnsweredCorrectly = setAnsweredCorrectly1;
+              break;
+            case 2:
+              answer = answer2.toLowerCase();
+              setResult = setResult2;
+              setAnsweredCorrectly = setAnsweredCorrectly2;
+              break;
+            case 3:
+              answer = answer3.toLowerCase();
+              setResult = setResult3;
+              setAnsweredCorrectly = setAnsweredCorrectly3;
+              break;
+            default:
+              break;
+          }
+          if (questionNumber === 1 && answer === "react" && !answeredCorrectly1) {
+                setResult("Correct!");
+                setScore(score + 1);
+                setAnsweredCorrectly1(true);
+          } else if (questionNumber === 2 && answer === "javascript" && !answeredCorrectly2) {
+                setResult("Correct!");
+                setScore(score + 1);
+                setAnsweredCorrectly2(true);
+          } else if (questionNumber === 3 && answer === "html" && !answeredCorrectly3) {
+                setResult("Correct!");
+                setScore(score + 1);
+                setAnsweredCorrectly3(true);
+          } else {
+                setResult("Incorrect!");
+          }
+        };
+
+        return (
+          <div className="quiz">
+            <div className="question">
+              <label>
+                Question 1: What library is used for building user interfaces in React?
+              </label>
+              <div>
+                <input type="radio" id="react" name="question1" value="react" onChange={() => setAnswer1("react")} />
+                <label htmlFor="react">React</label>
+              </div>
+              <div>
+                <input type="radio" id="angular" name="question1" value="angular" onChange={() => setAnswer1("angular")} />
+                <label htmlFor="angular">Angular</label>
+              </div>
+              <button className="button" onClick={() => checkAnswer(1)} disabled={answeredCorrectly1}>
+                  Check Answer
+              </button>
+              <div>{result1}</div>
+            </div>
+            <div className="question">
+              <label>
+                Question 2: What programming language is primarily used with React?
+              </label>
+              <div>
+                <input type="radio" id="javascript" name="question2" value="javascript" onChange={() => setAnswer2("javascript")} />
+                <label htmlFor="javascript">JavaScript</label>
+              </div>
+              <div>
+                <input type="radio" id="python" name="question2" value="python" onChange={() => setAnswer2("python")} />
+                <label htmlFor="python">Python</label>
+              </div>
+              <button className="button" onClick={() => checkAnswer(2)} disabled={answeredCorrectly2}>
+                Check Answer
+              </button>
+              <div>{result2}</div>
+            </div>
+            <div className="question">
+              <label>
+                Question 3: What markup language is used to structure web pages?
+              </label>
+              <div>
+                <input type="radio" id="html" name="question3" value="html" onChange={() => setAnswer3("html")} />
+                <label htmlFor="html">HTML</label>
+              </div>
+              <div>
+                <input type="radio" id="css" name="question3" value="css" onChange={() => setAnswer3("css")} />
+                <label htmlFor="css">CSS</label>
+              </div>
+              <button className="button" onClick={() => checkAnswer(3)} disabled={answeredCorrectly3}>
+                Check Answer
+              </button>
+              <div>{result3}</div>
+            </div>
+            <div>Total Score: {score}</div>
+          </div>
+        );
+      }
+
+      ReactDOM.render(<Quiz />, document.getElementById("root"));
+    </script>
+  </body>
+</html>

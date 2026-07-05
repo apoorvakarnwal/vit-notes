@@ -1,0 +1,65 @@
+<html>
+	<head>
+ 		<title>DOM manipulations</title>
+		<style>
+            div{
+                border: 2px solid blue;
+                margin: 5px 0px;
+            }
+        </style>
+	</head>
+	<body>
+        <h2>DOM 3</h2>
+        <p>This is a Paragraph outside division</p>
+        <button id="btn1">Append</button>
+        <button id="btn2">After</button>
+        <button id="btn3">Prepend</button>
+        <button id="btn4">Before</button>
+        <br><br>
+        <button id="btn5">Remove</button>
+        <button id="btn6">Empty</button>
+
+
+        <div id="firstdiv" class="mydiv">
+            <p id="p1" class="para">This is a 1st Paragraph in first division</p>
+            <p id="p2">This is a 2nd Paragraph in first division</p>
+        </div>
+        <div id="seconddiv" class="mydiv">
+            <p>This is a 1st Paragraph in second division</p>
+            <p>This is a 2nd Paragraph in first division</p>
+        </div>
+        
+        
+
+        <script src="./jquery-3.7.1.js" type="text/javascript"></script>
+        <script>
+            $(document).ready(function () {
+                
+                $("#btn1").click(function (){
+                    $("#firstdiv").append("<p>Append Inserts data at the end of selected element</p>");
+                }); 
+                $("#btn2").click(function (){
+                    $("#firstdiv").after("<p>After inserts data after the selected element(outside the div)</p>");
+                 
+                });
+                $("#btn3").click(function (){
+                    $("#firstdiv").prepend("<p>Prepend inserts data at the beginning of the selected element(inside the div)</p>");
+                });
+                $("#btn4").click(function (){
+                    $("#firstdiv").before("<p>Before inserts data before the selected element(outside the div)</p>");
+                });
+
+                $("#btn5").click(function (){
+                    $("#p2").remove();
+                    $("p").remove("#p2,#p1");
+                    // deletes the entire div
+                });
+                $("#btn6").click(function (){
+                    $("#firstdiv").empty();
+                    // empties the entire div
+                });
+            });
+        </script>
+	</body>
+
+</html>

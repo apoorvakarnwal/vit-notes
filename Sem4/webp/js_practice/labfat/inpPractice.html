@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Form Validation pt 1</title>
+</head>
+<body>
+    <form id="myform" onsubmit="return validate();">
+        <label for="username">Enter your username: </label>
+        <input type="text" required id="username" name="username">
+
+        <br>
+        <label for="gender">Select your gender:</label>
+        <br>
+        <input type="radio" name="gender" id="male" value="Male">
+        <label for="male">Male</label><br>
+        <input type="radio" name="gender" id="fmale" value="Female">
+        <label for="fmale">Female</label><br>
+        <br>
+
+        <label for="subjects">Select your subjects: </label>
+        
+        <br>
+        <input type="checkbox" class="checkbox" id="chemistry" name="sub" value="Chemistry">
+        <label for="chemistry">Chemistry</label><br>
+        <input type="checkbox" class="checkbox" id="physics" name="sub" value="Physics">
+        <label for="physics">Physics</label><br>
+        <input type="checkbox" class="checkbox" id="java" name="sub" value="Java">
+        <label for="java">Java</label><br>
+        <input type="checkbox" class="checkbox" id="english" name="sub" value="English">
+        <label for="english">English</label>
+        <br>
+        <br>
+
+        <label for="country">Select Country:</label>
+        <select name="country" id="country">
+            <option value="" selected disabled hidden>Select Country</option>
+            <option value="india">India</option>
+            <option value="usa">Usa</option>
+
+        </select>
+        <br>
+        <br>
+        <label for="file">Upload File: </label>
+        <input id="file" type="file">
+        <p id="filemsg"></p>
+        <br>
+        <input type="submit" value="submit" name="submit">
+        <p id="msg1"></p>
+        <p id="msg2"></p>
+        <p id="msg3"></p>
+
+    </form>
+
+    <script>
+        function validate(){
+            event.preventDefault();
+            const gender=document.getElementsByName('gender');
+            let found=false;
+            let res1='';
+            for(let k of gender){
+                if(k.checked){
+                    found=true;
+                    res1+=k.value;
+                }
+            }
+            if(!found){
+                return false;
+                document.getElementById("msg1").innerHTML="No gender checked";
+            }
+
+            else{
+                document.getElementById("msg1").innerHTML=res1;
+            }
+
+            let foundCheck=false;
+            const subjects=document.getElementsByName("sub");
+
+            var checkedValues='';
+            for(let i of subjects)
+            {
+                if(i.checked)
+                {
+                    checkedValues += i.value+" " ;
+                    foundCheck=true;
+                }
+            }
+
+            if(!foundCheck) {
+                return false;
+                document.getElementById("msg2").innerHTML = "Select your subjects";
+            } else {
+                document.getElementById("msg2").innerHTML = checkedValues;
+            }
+
+            const fileInp=document.getElementById('file');
+            if(fileInp.files.length>0){
+                const fileSize=fileInp.files[0].size;
+                const fileType=fileInp.files[0].type;
+                if(fileSize> 1024*1024 || fileType!=='application/pdf'){
+                    document.getElementById('filemsg').innerHTML='File must be less than 1mb and in pdf format';
+                    return false;
+                }
+            }
+
+            let country= document.getElementById('country').value;
+
+            if(!country){
+                document.getElementById("msg3").innerHTML="No country selected";
+            }
+            else{
+                document.getElementById("msg3").innerHTML=country;
+            }
+
+            document.getElementById('myform').reset();
+            return true;
+        }
+    </script>
+</body>
+</html>
