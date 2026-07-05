@@ -1,0 +1,12 @@
+node_modules/
+dist/
+build/
+coverage/
+.vscode/
+.DS_Store
+*.log
+*.mp4
+*.mov
+*.iso
+*.dmg
+venv/
