@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas{
+            border: 2px solid #ccc;
+            cursor: crosshair;
+        }
+    </style>
+</head>
+<body>
+    <h2>Draw Shape</h2>
+    <canvas id="canvas" width="400" height="300"></canvas>
+    <br>
+    <label for="shape">Select Shape : </label>
+    <select id="shape">
+        <option value="circle">Circle</option>
+        <option value="rectangle">Rectangle</option>
+        <option value="line">Line</option>
+    </select>
+    <br>
+    <label for="color">Select Color : </label>
+    <input type="color" id="color">
+    <br>
+    <button onclick="drawShape()">Draw</button>
+
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        function drawShape()
+        {
+        const shape = document.getElementById('shape').value;
+        const color = document.getElementById('color').value;
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        if(shape=== 'circle')
+        {
+            ctx.beginPath();
+            ctx.arc(canvas.width / 2, canvas.height / 2, 50, 0, Math.PI * 2);
+            ctx.fillStyle = color;
+            ctx.fill();
+        }
+        else if( shape==='rectangle')
+        {
+            ctx.beginPath();
+                ctx.rect(canvas.width / 4, canvas.height / 4, canvas.width / 2,
+                    canvas.height / 2);
+                    ctx.fillStyle = color;
+                ctx.fill();
+
+        }
+        else if(shape === 'line')
+        {
+            ctx.beginPath();
+                ctx.moveTo(canvas.width / 4, canvas.height / 2);
+                ctx.lineTo(canvas.width * 3 / 4, canvas.height / 2);
+                ctx.strokeStyle = color;
+                ctx.stroke();
+
+        }
+        }
+    </script>
+</body>
+</html>

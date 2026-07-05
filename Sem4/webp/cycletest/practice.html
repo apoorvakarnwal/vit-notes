@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Membership Form</title>
+        <style>
+            body{
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            .box{
+                max-width: 500px;
+                margin: 0px auto;
+                background-color: rgba(19, 231, 223, 0.652);
+                padding: 10px 20px 20px 20px;
+                border-radius: 20px;
+                box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            }
+            input{
+                border-radius: 3px;
+                padding: 6px 10px;
+                border: 1px solid #ccc;
+                margin-bottom: 5px;
+                box-sizing: border-box;
+            }
+            .full{
+                width: 100%;
+            }
+            .half {
+                width: 49.5%;
+            }
+            input[type="submit"]{
+                background-color: #082451;
+                border: none;
+                color: white;
+                padding: 8px 25px;
+                border-radius: 50px;
+                cursor: pointer;
+            }
+            .submit-box{
+                display: flex;
+                justify-content: center;
+            }
+            input[type="submit"]:hover{
+                opacity: 0.5;
+            }
+
+
+        </style>
+    </head>
+    <body>
+        <div class="box">
+            <form id="membership-form" onsubmit="return validate();">
+                <h1>Associate Membership Form</h1>
+                <h2>Member Information</h2>
+                <label for="name">Name</label><br>
+                <input class="half" type="text" id="fname" name="fname" placeholder="First">
+                <input class="half" type="text" id="lname" name="lname" placeholder="Last">
+                <br><br>
+
+                <label for="address">Address</label><br>
+                <input class="full" type="text" id="line1" name="line1" placeholder="Street Address">
+                <br>
+                <input class="full" type="text" id="line2" name="line2" placeholder="Street Address Line 2"><br>
+                <input class="half" type="text" id="city" name="city" placeholder="City">
+                <input class="half" type="text" id="region" name="region" placeholder="Region"><br>
+                <input class="half" type="text" id="zip" name="zip" placeholder="Postal/Zipcode">
+                <input class="half" type="text" id="country" name="country" placeholder="Country"><br><br>
+
+                <label for="phone">Phone</label><br>
+                <input class="full" type="tel" id="phone" name="tel" placeholder="Phone"><br><br>
+
+                <label for="email">Email</label><br>
+                <input class="full" type="email" id="email" name="email" placeholder="Email Address"><br><br>
+
+
+                <label for="plan">Membership plan</label><br>
+                
+                <input type="radio" id="individual" name="plan" value="individual">
+                <label for="individual">Individual</label>
+                <br>
+                <input type="radio" id="family" name="plan" value="family">
+                <label for="family">Family</label>
+                <br>
+                <input type="radio" id="student" name="plan" value="student">
+                <label for="student">Student</label>
+                <br>
+                <input type="radio" id="educator" name="plan" value="educator">
+                <label for="educator">Educator</label>
+                <br><br>
+
+                <div class="submit-box"><input type="submit" value="SEND"></div>
+                
+                <div id="response" ></div>
+            </form>
+        </div>
+
+        <script>
+            function validate(){
+                event.preventDefault();
+                var fname=document.getElementById('fname').value;
+                var lname=document.getElementById('lname').value;
+                var line1=document.getElementById('line1').value;
+                var line2=document.getElementById('line2').value;
+                var city=document.getElementById('city').value;
+                var region =document.getElementById('region').value;
+                var zip=document.getElementById('zip').value;
+                var country=document.getElementById('country').value;
+                var phone=document.getElementById('phone').value;
+
+                const membership=document.getElementsByName('plan');
+                var foundmember=false;
+                let memType='';
+                for(i of membership){
+                    if(i.checked){
+                        memType=i.value;
+                        foundmember=true;
+                    }
+                }
+                if(!fname ||!phone|| !lname ||!line1 ||!line2 ||!city ||!region ||!zip|| !country|| !foundmember){
+                    alert("Please fill all the required fields.");
+                    return false;
+                }
+                let cost=0;
+                switch(memType){
+                    case "student":
+                        cost =10000;
+                        break;
+                    case "individual":
+                        cost =25000;
+                        break;
+                    case "family":
+                        cost =5000;
+                        break;
+                    case "educator":
+                        cost =9000;
+                        break;
+                }
+                document.getElementById('response').innerHTML=`Name: ${fname} ${lname} <br>
+Phone: ${phone} <br>
+Membership: ${memType} <br>
+Cost: ${cost} <br>
+`;
+                document.getElementById("membership-form").reset();
+                return true;
+            }
+        </script>
+    </body>
+</html>

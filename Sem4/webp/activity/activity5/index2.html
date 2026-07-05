@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <style>
+        body{
+            padding: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        #myform{
+            padding: 20px;
+            background-color: #c8edf9a0;
+            max-width: 500px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 50px auto;
+            border-radius: 10px;
+        }
+        #submit{
+            background-color: rgb(14, 14, 173);
+            color: white;
+            border: none;
+            padding: 5px 15px;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body>
+    <form id="myform" onsubmit="return validate();">
+        <h2>Product Review</h2>
+        <label for="projectId">Project ID: </label>
+        <input type="text" id="projectId" name="projectId">
+        <br>
+        <br>
+        <label for="date">Date: </label>
+        <input type="date" name="date" id="date">
+        <br>
+        <br>
+        <label for="rating">Rating: </label>
+        <br>
+        <input type="radio" name="rating" id="1">
+        <label for="1">1</label>
+        <br>
+        <input type="radio" name="rating" id="2">
+        <label for="2">2</label>
+        <br>
+        <input type="radio" name="rating" id="3">
+        <label for="3">3</label>
+        <br>
+        <input type="radio" name="rating" id="4">
+        <label for="4">4</label>
+        <br>
+        <input type="radio" name="rating" id="5">
+        <label for="5">5</label>
+        <br>
+        <div id="imgs"></div>
+        <br>
+        <label for="revs">Additional Feedback : </label>
+        <br>
+        
+        <br>
+        <br>
+
+        <label for="rating">Age Group: </label>
+        <br>
+        <input type="radio" name="age" id="under18">
+        <label for="under18">Under 18</label>
+        <br>
+        <input type="radio" name="age" id="18-30">
+        <label for="18-30">18-30</label>
+        <br>
+        <input type="radio" name="age" id="30-45">
+        <label for="30-45">30-45</label>
+        <br>
+        <input type="radio" name="age" id="over45">
+        <label for="over45">Over 45</label>
+        <br>
+        <br>
+        <label for="mytext">Additional Comments:</label>
+        <br>
+        <textarea name="mytext" id="mytext" cols="30" rows="10"></textarea>
+        <br>
+        <br>
+
+        <input type="submit" name="submit" id="submit" value="Submit">
+    </form>
+
+    <script>
+        function validate(){
+            event.preventDefault();
+            var projectId=document.getElementById('projectId').value;
+            var dateValue=document.getElementById('date').value;
+            var ratingval=document.getElementsByName('rating');
+            var ageval=document.getElementsByName('age');
+            var comments=document.getElementById('mytext').value;
+            var rating=0;
+            for(let i=0;i<ratingval.length;i++){
+                if(ratingval[i].checked==true){
+                    rating=Number(ratingval[i].id);
+                    break;
+                }
+            }
+            var age='';
+            for(let i=0;i<ageval.length;i++){
+                if(ageval[i].checked==true){
+                    age=document.querySelector(`label[for="${ageval[i].id}"]`).textContent;
+                    break;
+                }
+            }
+            console.log(projectId);
+            console.log(dateValue);
+            console.log(rating);
+            console.log(age);
+
+            if(!projectId || !dateValue || !rating || !age|| !comments){
+                alert("Please fill all the input fields.")
+                return false;
+            }
+            if (comments.length > 200) {
+                alert("Comments should not exceed 200 characters.");
+                return false;
+            }
+
+            var today = new Date();
+            var purchaseDate = new Date(dateValue);
+            var differenceInTime = today.getDate() - purchaseDate.getDate();
+            var differenceInDays = differenceInTime / (1000 * 3600 * 24);
+            
+            if (differenceInDays > 14) {
+                alert("The purchase date is greater than 2 weeks from the current date. Please escalate.");
+                return false;
+            }
+            const one = document.getElementById("1");
+            const imgup = document.getElementById('imgs');
+            one.addEventListener('click', () => {
+                imgup.innerHTML = `
+<label for="imgus">Product Image upload : </label>
+<input type="file" name="imgus" id="imgus">
+`
+            });
+
+            return true;
+        }
+    </script>
+</body>
+</html>

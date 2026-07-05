@@ -1,0 +1,24 @@
+Create a web form for theme park entry that collects visitor details 
+including age category (child, adult, senior) and entry category (college, family). 
+Implement JavaScript validation using onchange event handlers for real-time validation
+ of the age category and onsubmit event handler for validating all fields before submitting the form.
+
+The validation requirements are as follows:
+
+Age category must be selected (child, adult, senior).
+Entry category must be selected (college, family).
+If the age category is "child", the visitor must be under 12 years
+  old. If the age category is "senior", the visitor must be 60 years old or older.
+Additionally, calculate the entry fee based on the age category and entry category:
+
+Child: Rs.300
+Adult:
+College category:Rs.400 (if group size is >15)
+Family category: Rs.500
+Senior: Rs 450
+Implement the validation and entry fee calculation using JavaScript 
+object-oriented programming principles. Use onchange event handlers
+ to validate the age category as the user selects and an onsubmit 
+ event handler to validate all fields before allowing the form 
+ submission. Display appropriate error messages for invalid inputs 
+ and show the calculated entry fee upon successful form submission.

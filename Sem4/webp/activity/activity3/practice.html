@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div id="myform">
+        <form action="">
+            <h2>Journal Subscription Page</h2>
+            <br>
+            <label for="start">Start Date: </label>
+            <input type="date" id="start">
+            <br><br>
+            <label for="duration">Subscription Duration: </label>
+            <input type="range" step="1" min="1" max="5">
+            <br><br>
+            <label for="occupation">Occupation: </label>
+            <br>
+            <input type="radio" name="occupation" id="student">
+            <label for="student">Student</label>
+            <br>
+        
+            <input type="radio" name="occupation" id="professional">
+            <label for="professional">Professional</label>
+            <br><br>
+
+            <label for="jtitle">Journal Titles: </label>
+            <br>
+            <input type="checkbox" name="jtitle" id="education">
+            <label for="education">Education</label>
+            <br>
+            <input type="checkbox" name="jtitle" id="art">
+            <label for="art">Art</label>
+            <br>
+            <input type="checkbox" name="jtitle" id="science">
+            <label for="science">Science</label>
+            <br>
+            <input type="checkbox" name="jtitle" id="math">
+            <label for="math">Math</label>
+            <br><br>
+
+            <label for="num">Number of Subscriptions</label>
+            <input type="number" name="num" id="num" min="10" max="200">
+            <br><br>
+
+            <label for="url">Website Url</label>
+            <input type="url" name="url" id="url" >
+
+            <div class="submit">
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

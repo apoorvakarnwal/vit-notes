@@ -1,0 +1,128 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Amusement Park Form</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <div class="box">
+        <form id="booking-form" onsubmit=" calculateEntryFee()">
+            <h1>Amuzement Park, New Delhi</h1>
+            <h2>Book Now!!</h2>
+            <label for="name">Name</label><br>
+            <input class="half" type="text" id="fname" name="fname" placeholder="First">
+            <input class="half" type="text" id="lname" name="lname" placeholder="Last"><br><br>
+
+            <label for="age">Age</label><br>
+            
+            <input type="radio" id="child" name="age">
+            <label for="child">Child</label>
+            <br>
+            <input type="radio" id="adult" name="age">
+            <label for="adult">Adult</label>
+            <br>
+            <input type="radio" id="senior" name="age">
+            <label for="senior">Senior</label>
+            <br><br>
+
+            <label for="entry">Entry Category</label><br>
+            
+            <input type="radio" id="college" name="entry">
+            <label for="college">College</label>
+            <br>
+            <input type="radio" id="family" name="entry">
+            <label for="family">Family</label>
+            <br><br>
+
+
+            <div class="submit-box"><input type="submit" value="Submit "></div>
+            
+            <div id="response" ></div>
+        </form>
+    </div>
+
+    <script src="./index.js"></script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Amusement Park Form</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <div class="box">
+        <form id="booking-form" onsubmit="return calculateEntryFee()">
+            <h1>Amusement Park, New Delhi</h1>
+            <h2>Book Now!!</h2>
+            <label for="name">Name</label><br>
+            <input class="half" type="text" id="fname" name="fname" placeholder="First">
+            <input class="half" type="text" id="lname" name="lname" placeholder="Last"><br><br>
+
+            <label for="age">Age</label><br>
+            <input type="radio" id="child" name="age" value="child">
+            <label for="child">Child</label>
+            <br>
+            <input type="radio" id="adult" name="age" value="adult">
+            <label for="adult">Adult</label>
+            <br>
+            <input type="radio" id="senior" name="age" value="senior">
+            <label for="senior">Senior</label>
+            <br><br>
+
+            <label for="entry">Entry Category</label><br>
+            <input type="radio" id="college" name="entry" value="college">
+            <label for="college">College</label>
+            <br>
+            <input type="radio" id="family" name="entry" value="family">
+            <label for="family">Family</label>
+            <br><br>
+
+            <div class="submit-box"><input type="submit" value="Submit"></div>
+            
+            <div id="response"></div>
+        </form>
+    </div>
+
+    <script>
+        // Function to calculate entry fee based on age category and entry category
+        function calculateEntryFee() {
+            const ageCategory = document.querySelector('input[name="age"]:checked');
+            const entryCategory = document.querySelector('input[name="entry"]:checked');
+            let entryFee;
+
+            if (!ageCategory) {
+                alert("Please select an age category.");
+                return false;
+            }
+
+            if (!entryCategory) {
+                alert("Please select an entry category.");
+                return false;
+            }
+
+            switch (ageCategory.value) {
+                case "child":
+                    entryFee = 300;
+                    break;
+                case "adult":
+                    if (entryCategory.value === "college") {
+                        entryFee = 400;
+                    } else if (entryCategory.value === "family") {
+                        entryFee = 500;
+                    }
+                    break;
+                case "senior":
+                    entryFee = 450;
+                    break;
+                default:
+                    entryFee = 0; // Default to 0 if age category is not valid
+            }
+
+            alert("Entry Fee: Rs. " + entryFee);
+            return true;
+        }
+    </script>
+</body>
+</html>

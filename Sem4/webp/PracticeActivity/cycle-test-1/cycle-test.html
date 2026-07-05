@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Membership Form</title>
+        <link rel="stylesheet" href="./cycle-test.css">
+    </head>
+    <body>
+        <div class="box">
+            <form id="membership-form" onsubmit="return validateForm()">
+                <h1>Associate Membership Form</h1>
+                <h2>Member Information</h2>
+                <label for="name">Name</label><br>
+                <input class="half" type="text" id="fname" name="fname" placeholder="First">
+                <input class="half" type="text" id="lname" name="lname" placeholder="Last"><br><br>
+
+                <label for="address">Address</label><br>
+                <input class="full" type="text" id="line1" name="line1" placeholder="Street Address"><br>
+                <input class="full" type="text" id="line2" name="line2" placeholder="Street Address Line 2"><br>
+                <input class="half" type="text" id="city" name="city" placeholder="City">
+                <input class="half" type="text" id="region" name="region" placeholder="Region"><br>
+                <input class="half" type="text" id="zip" name="zip" placeholder="Postal/Zipcode">
+                <input class="half" type="text" id="country" name="country" placeholder="Country"><br><br>
+
+                <label for="phone">Phone</label><br>
+                <input class="full" type="tel" id="phone" name="tel" placeholder="Phone"><br><br>
+
+                <label for="email">Email</label><br>
+                <input class="full" type="email" id="email" name="email" placeholder="Email Address"><br><br>
+
+                <label for="plan">Membership plan</label><br>
+                
+                <input type="radio" id="individual" name="plan">
+                <label for="individual">Individual</label>
+                <br>
+                <input type="radio" id="family" name="plan">
+                <label for="family">Family</label>
+                <br>
+                <input type="radio" id="student" name="plan">
+                <label for="student">Student</label>
+                <br>
+                <input type="radio" id="educator" name="plan">
+                <label for="educator">Educator</label>
+                <br><br>
+
+                <div class="submit-box"><input type="submit" value="SEND"></div>
+                
+                <div id="response" ></div>
+            </form>
+        </div>
+
+        <script src="./cycle-test.js"></script>
+    </body>
+</html>

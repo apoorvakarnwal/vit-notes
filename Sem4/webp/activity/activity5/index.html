@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <style>
+        body{
+            padding: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        #myform{
+            padding: 20px;
+            background-color: #c8edf9a0;
+            max-width: 500px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 50px auto;
+            border-radius: 10px;
+        }
+        #submit{
+            background-color: rgb(14, 14, 173);
+            color: white;
+            border: none;
+            padding: 5px 15px;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body>
+    <form id="myform" onsubmit="return validate();">
+        <h2>Product Review</h2>
+        <label for="projectId">Project ID: </label>
+        <input type="text" id="projectId" name="projectId">
+        <br>
+        <br>
+        <label for="date">Date: </label>
+        <input type="date" name="date" id="date">
+        <br>
+        <br>
+        <label for="rating">Rating: </label>
+        <br>
+        <input type="radio" name="rating" id="one">
+        <label for="one">1</label>
+        <br>
+
+        <input onclick="otherRating();" type="radio" name="rating" id="two">
+        <label for="two">2</label>
+        <br>
+        <input onclick="otherRating();" type="radio" name="rating" id="three">
+        <label for="three">3</label>
+        <br>
+        <input onclick="otherRating();" type="radio" name="rating" id="four">
+        <label for="four">4</label>
+        <br>
+        <input onclick="otherRating();" type="radio" name="rating" id="five">
+        <label for="five">5</label>
+        <br>
+        <div id="file"></div>
+        <br>
+        <br>
+
+        <label for="rating">Age Group: </label>
+        <br>
+        <input type="radio" name="age" id="under18">
+        <label for="under18">Under 18</label>
+        <br>
+        <input type="radio" name="age" id="18-30">
+        <label for="18-30">18-30</label>
+        <br>
+        <input type="radio" name="age" id="30-45">
+        <label for="30-45">30-45</label>
+        <br>
+        <input type="radio" name="age" id="over45">
+        <label for="over45">Over 45</label>
+        <br>
+        <br>
+        <label for="mytext">Additional Comments:</label>
+        <br>
+        <textarea name="mytext" id="mytext" cols="30" rows="10"></textarea>
+        <br>
+        <br>
+
+        <input type="submit" name="submit" id="submit" value="Submit">
+    </form>
+
+    <script>
+        const one=document.getElementById('one');
+        const file = document.getElementById('file');
+        one.addEventListener("click", function(){
+            file.innerHTML=`
+            <label for="inp">Upload Image: </label>
+<input type="file" name="inp" id="inp">`;
+            });
+        function otherRating(){
+            file.innerHTML='';
+        }
+        function validate(){
+            event.preventDefault();
+            var projectId=document.getElementById('projectId').value;
+            var date=document.getElementById('date').value;
+            var ratingval=document.getElementsByName('rating');
+            var ageval=document.getElementsByName('age');
+            var comments=document.getElementById('mytext').value;
+            var rating=0;
+            for(let i=0;i<ratingval.length;i++){
+                if(ratingval[i].checked==true){
+                    rating=i+1;
+                    break;
+                }
+            }
+            var age='';
+            for(let i=0;i<ageval.length;i++){
+                if(ageval[i].checked==true){
+                    age=document.querySelector(`label[for="${ageval[i].id}"]`).textContent;
+                    break;
+                }
+            }
+            console.log(projectId);
+            console.log(date);
+            console.log(rating, typeof rating);
+            console.log(age);
+
+            if(!projectId || !date || !rating || !age|| !comments){
+                alert("Please fill all the input fields.")
+                return false;
+            }
+            if (comments.length > 200) {
+                alert("Comments should not exceed 200 characters.");
+                return false;
+            }
+
+
+            var todayDate = new Date();
+            var selectedDate= new Date(date);
+            console.log(todayDate);
+            var timeDiffernce= todayDate.getTime()-selectedDate.getTime();
+            var timeDiffernceDays = timeDiffernce/(24*60*60*1000);
+            if(timeDiffernceDays>14){
+                alert("Purchase date must be within 14 days.");
+            }
+            if(timeDiffernce<0){
+                alert("Date must not exeed today.");
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>

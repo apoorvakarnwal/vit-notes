@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Review</title>
+    <style>
+        .main-div {
+            max-width: 500px;
+            margin: 50px auto;
+            background-color: rgb(205, 229, 238);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        section {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: rgb(76, 175, 80);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 0.8em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main-div">
+        <form id="reviewForm" action="#">
+            <div class="sub-div">
+                <h2>Product Review</h2>
+                <section>
+                    <h4>Purchase Info</h4>
+                    <label for="prodID">Product ID : </label>
+                    <input type="text" name="prodID" id="prodID" required>
+                    <br>
+                    <label for="dop">Date of Purchase : </label>
+                    <input type="date" name="dop" id="dop" required>
+                    <br>
+                    <span id="dateError" class="error-message"></span>
+                    <br>
+                </section>
+                <section>
+                    <h4>Consumer Info (Optional)</h4>
+                    <label for="cname">Name : </label>
+                    <input type="text" name="cname" id="cname">
+                    <br>
+                    <label for="em">Email : </label>
+                    <input type="email" name="em" id="em">
+                    <br>
+                    <br>
+                    <label for="rating">Age Group: </label>
+                    <br>
+                    <input type="radio" name="age" id="under18">
+                    <label for="under18">Under 18</label>
+                    <br>
+                    <input type="radio" name="age" id="18-30">
+                    <label for="18-30">18-30</label>
+                    <br>
+                    <input type="radio" name="age" id="30-45">
+                    <label for="30-45">30-45</label>
+                    <br>
+                    <input type="radio" name="age" id="over45">
+                    <label for="over45">Over 45</label>
+                    <br>
+                    <br>
+                </section>
+                <section>
+                    <h4>Review</h4>
+                    <label for="rev">Product Rating : </label>
+                    <br>
+                    <input type="radio" name="rev" id="one" value="1">
+                    <label for="one">1</label>
+                    <br>
+                    <input type="radio" name="rev" id="two" value="2">
+                    <label for="two">2</label>
+                    <br>
+                    <input type="radio" name="rev" id="three" value="3">
+                    <label for="three">3</label>
+                    <br>
+                    <input type="radio" name="rev" id="four" value="4">
+                    <label for="four">4</label>
+                    <br>
+                    <input type="radio" name="rev" id="five" value="5">
+                    <label for="five">5</label>
+                    <br>
+                    <div id="imgUpload" style="display: none;">
+                        <label for="imgus">Product Image upload : </label>
+                        <input type="file" name="imgus" id="imgus">
+                        <br>
+                    </div>
+                    <br>
+                    <label for="revs">Additional Feedback : </label>
+                    <br>
+                    <textarea name="revs" id="revs" cols="30" rows="10"></textarea>
+                    <br>
+                </section>
+                <input type="submit">
+            </div>
+        </form>
+    </div>
+    <script>
+        const reviewForm = document.getElementById("reviewForm");
+        const dopInput = document.getElementById("dop");
+        const dateError = document.getElementById("dateError");
+        const one = document.getElementById("one");
+        const imgUpload = document.getElementById("imgUpload");
+
+        var age='';
+            for(let i=0;i<ageval.length;i++){
+                if(ageval[i].checked==true){
+                    age=document.querySelector(`label[for="${ageval[i].id}"]`).textContent;
+                    break;
+                }
+            }
+        reviewForm.addEventListener("submit", function (event) {
+            const today = new Date();
+            const purchaseDate = new Date(dopInput.value);
+            const timeDifference = today.getTime() - purchaseDate.getTime();
+            const daysDifference = timeDifference / (1000 * 3600 * 24);
+
+            if (daysDifference > 14) {
+                event.preventDefault();
+                dateError.textContent = "Purchase date should be within 2 weeks from today.";
+            }
+            const rating = document.querySelector('input[name="rev"]:checked');
+            if (!rating) {
+                event.preventDefault();
+                alert("Please rate the product.");
+                return;
+            }
+            
+            if (rating.value <= 1) {
+                imgUpload.style.display = "block";
+            }
+        });
+    </script>
+</body>
+
+</html>

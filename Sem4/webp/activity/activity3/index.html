@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Journal</title>
+    <style>
+      body{
+        padding-left:20px ;
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #FEFEDF;
+      }
+      h1{
+        text-align: center;
+        font-size: 40px;
+        margin-left: 40px;
+      }
+      div{
+        width: fit-content;
+        margin: 0px auto ;
+        text-align: left;
+      }
+      .container {
+        display: flex;
+        align-items: center;
+      }
+
+      .submit{
+        background-color: #F3C5FF;
+        border: 1px solid #845EC2;
+        width: 100%;
+        border-radius: 2px;
+        padding: 4px 8px;
+      }
+
+      .url{
+        width: max-content;
+      }
+
+    </style>
+  </head>
+  <body>
+    <h1>Journal subscription page</h1>
+    <div>
+      <form>
+        <label for="startDate">Starting Date: </label>
+        <input type="date" name="startDate" id="startDate" min="2024-01-18">
+        <br><br>
+  
+        <label for="subDuration">Subscription Duration: </label>
+        <input type="range" name="subDuration" id="subDuration" min="1" max="10" value="2">
+        <br><br>
+  
+        <label for="occupation">Occupation: </label><br>
+        <input type="radio" name="occupation" id="Student" value="Student">
+        <label for="Student">Student</label><br>
+        <input type="radio" name="occupation" id="Professional" value="Professional">
+        <label for="Professional">Professional</label>
+        <br><br>
+  
+        <label for="journals">Journal Titles:</label><br>
+        <input type="checkbox" id="science" name="journals" value="science">
+        <label for="science"> Science</label><br>
+        <input type="checkbox" id="technology" name="journals" value="technology">
+        <label for="technology"> Technology</label><br>
+        <input type="checkbox" id="health" name="journals" value="health">
+        <label for="health"> Health</label><br>
+        <input type="checkbox" id="arts" name="journals" value="arts">
+        <label for="arts"> Arts</label><br>
+        <input type="checkbox" id="business" name="journals" value="business">
+        <label for="business"> Business</label><br>
+        <input type="checkbox" id="education" name="journals" value="education">
+        <label for="education"> Education</label>
+        <br><br>
+  
+        <label for="numSubscriptions">Number of Subscriptions:</label>
+        <input type="number" name="numSubscriptions" id="numSubscriptions" min="10" max="200">
+        <br><br>
+  
+        <label for="url">Website URL:</label>
+        <input class="url" type="url" name="url" id="url" pattern="https?://.+">
+        <br><br>
+
+        <div class="container">
+          <input class="submit" type="submit">
+        </div>
+        
+      </form>
+    </div>
+    
+  </body>
+</html>

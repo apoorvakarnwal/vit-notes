@@ -1,0 +1,250 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+
+<title>Credit Card Validation</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        max-width: 400px;
+        margin: 50px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    input, button {
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 10px;
+        box-sizing: border-box;
+        border:1px solid #ccc ;
+        border-radius: 5px;
+    }
+    button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #0056b3;
+    }
+    .half{
+        width: 49.4%;
+        margin-bottom: 10px;
+        padding: 10px;
+        box-sizing: border-box;
+        border:1px solid #ccc ;
+        border-radius: 5px;
+    }
+    .custom-col{
+        color: #ccc;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Credit Card Validation</h2>
+    <form id="payment-form">
+        <input type="text" id="card-number" placeholder="Card Number" />
+        <select class="half" id="card-month">
+            <option class="custom-col" value="" selected disabled>Month</option>
+            <option value="01">January</option>
+            <option value="02">February</option>
+            <option value="03">March</option>
+            <option value="04">April</option>
+            <option value="05">May</option>
+            <option value="06">June</option>
+            <option value="07">July</option>
+            <option value="08">August</option>
+            <option value="09">September</option>
+            <option value="10">October</option>
+            <option value="11">November</option>
+            <option value="12">December</option>
+        </select>
+        
+        <select class="half" id="card-year">
+            <option value="" selected disabled>Year</option>
+            <option value="2022">2022</option>
+            <option value="2023">2023</option>
+            <option value="2024">2024</option>
+            <option value="2025">2025</option>
+            <option value="2026">2026</option>
+            <option value="2027">2027</option>
+        </select>
+        
+        <input type="text" id="card-cvv" placeholder="CVV" />
+        <button type="button" id="validate-button">Proceed</button>
+        <div id="card-type"></div>
+    </form>
+</div>
+
+<script>
+document.getElementById('validate-button').addEventListener('click', function() {
+    var cardNumber = document.getElementById('card-number').value.replace(/\s/g, ''); // Remove spaces
+    if (isValidCardNumber(cardNumber)) {
+        if (cardNumber.startsWith('4')) {
+            alert('Visa Card Detected');
+        } 
+        else if (cardNumber.startsWith('5')) {
+            alert('Mastercard Detected');
+        } 
+        else {
+            alert('Unknown Card Type');
+        }
+    } else {
+        alert('Invalid Card Number');
+    }
+});
+
+function isValidCardNumber(cardNumber) {
+    var sum = 0;
+    var doubleUp = false;
+    for (var i = cardNumber.length - 1; i >= 0; i--) {
+        var digit = parseInt(cardNumber.charAt(i), 10);
+        if (doubleUp) {
+            digit *= 2;
+            if (digit > 9) {
+                digit -= 9;
+            }
+        }
+        sum += digit;
+        doubleUp = !doubleUp;
+    }
+    return sum % 10 === 0;
+}
+</script>
+
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Credit Card Validation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input, button {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .half {
+            width: 49.4%;
+            margin-bottom: 10px;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .custom-col {
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Credit Card Validation</h2>
+    <form id="payment-form">
+        <input type="text" id="card-number" placeholder="Enter Card Number" />
+        <select class="half" id="card-month">
+            <option class="custom-col" value="" selected disabled>Select Expiry Month</option>
+            <option value="01">January</option>
+            <option value="02">February</option>
+            <option value="03">March</option>
+            <option value="04">April</option>
+            <option value="05">May</option>
+            <option value="06">June</option>
+            <option value="07">July</option>
+            <option value="08">August</option>
+            <option value="09">September</option>
+            <option value="10">October</option>
+            <option value="11">November</option>
+            <option value="12">December</option>
+        </select>
+        
+        <select class="half" id="card-year">
+            <option value="" selected disabled>Select Expiry Year</option>
+            <option value="2022">2022</option>
+            <option value="2023">2023</option>
+            <option value="2024">2024</option>
+            <option value="2025">2025</option>
+            <option value="2026">2026</option>
+            <option value="2027">2027</option>
+        </select>
+        
+        <input type="text" id="card-cvv" placeholder="Enter CVV" />
+        <button type="button" id="validate-button">Proceed</button>
+        <div id="card-type"></div>
+    </form>
+</div>
+
+<script>
+document.getElementById('validate-button').addEventListener('click', function() {
+    var cardNumber = document.getElementById('card-number').value.replace(/\s/g, ''); // Remove spaces
+    if (isValidCardNumber(cardNumber)) {
+        if (cardNumber.startsWith('4')) {
+            alert('Visa Card Detected');
+        } 
+        else if (cardNumber.startsWith('5')) {
+            alert('Mastercard Detected');
+        } 
+        else {
+            alert('Unknown Card Type');
+        }
+    } else {
+        alert('Invalid Card Number');
+    }
+});
+
+function isValidCardNumber(cardNumber) {
+    var sum = 0;
+    var doubleUp = false;
+    for (var i = cardNumber.length - 1; i >= 0; i--) {
+        var digit = parseInt(cardNumber.charAt(i), 10);
+        if (doubleUp) {
+            digit *= 2;
+            if (digit > 9) {
+                digit -= 9;
+            }
+        }
+        sum += digit;
+        doubleUp = !doubleUp;
+    }
+    return sum % 10 === 0;
+}
+</script>
+
+</body>
+</html>

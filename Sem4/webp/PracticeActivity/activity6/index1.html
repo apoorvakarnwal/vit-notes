@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <style>
+        body{
+            padding-left: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+    <link rel="stylesheet" href="./index1.css">
+</head>
+<body>
+    <form id="emiCalculatorForm">
+        <h1>Loan Eligibility Form</h1>
+        <label for="loanAmount">Loan Amount (in Rs):</label>
+        <input type="number" id="loanAmount" name="loanAmount" required>
+        <br>
+        <br>
+        
+        <label for="interestRate">Interest Rate (per annum):</label>
+        <input type="number" id="interestRate" name="interestRate" step="0.01" required>
+        <br>
+        <br>
+        
+        <label for="tenure">Loan Period (in years):</label>
+        <input type="range" id="tenure" name="tenure" min="1" max="30" value="15">
+        <p id="display-tenure"></p>
+        <br>
+        <br>
+        
+        
+        <!-- <output for="tenure" id="selectedTenure">15 years</output><br><br> -->
+
+        <label for="annualIncome">Annual Income (in Rs):</label>
+        <input type="number" id="annualIncome" name="annualIncome" required>
+        <br>
+        <br>
+
+        <label for="creditScore">Credit Score :</label>
+        <input type="number" id="creditScore" name="creditScore" required>
+        <br>
+        <br>
+
+        <label for="age">Age (in years):</label>
+        <input type="number" id="age" name="age" required>
+        <br>
+        <br>
+        
+        <button type="submit">Calculate EMI</button>
+    </form>
+    
+    <div id="result" style="display: inline-block;">
+        <h3>EMI Calculation Result: </h3>
+        <p id="emi"></p>
+    </div>
+
+    <script src="./index1.js">
+        var loanTenure = document.getElementById('tenure');
+
+    </script>
+</body>
+</html>
+
+<!-- 
+    <label for="period">Loan Period : </label>
+        <input type="range" name="period" id="period" min="1" max="10" step="1" required>
+        <p id="disperiod"></p>
+
+     var dispPeriod = document.getElementById('disperiod');
+
+    var timePeriod = document.getElementById('period');
+    timePeriod.addEventListener('change', function(){
+        dispPeriod.innerHTML = timePeriod.value;
+    })
+
+ -->

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIT GRADE CALCULATOR</title>
+    <style>
+        body{
+            padding-left: 20px;
+
+        }
+        form{
+            width: 300px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <h1>GPA Calculator</h1>
+        <br>
+        <label for="cat1">CAT 1 : </label>
+        <input type="number" name="cat1" id="cat1" min="0" max="50" required>
+        <br><br>
+        <label for="cat2">CAT 2 : </label>
+        <input type="number" name="cat2" id="cat2" min="0" max="50" required>
+        <br><br>
+        <label for="quiz1">QUIZ 1 : </label>
+        <input type="number" name="quiz1" id="quiz1" min="0" max="10" required>
+        <br><br>
+        <label for="quiz2">QUIZ 2 : </label>
+        <input type="number" name="quiz2" id="quiz2" min="0" max="10" required>
+        <br><br>
+        <label for="da">DA : </label>
+        <input type="number" name="da" id="da"  min="0" max="10" required>
+        <br><br>
+        <label for="fat">FAT : </label>
+        <input type="number" name="fat" id="fat"  min="0" max="100" required>
+        <br><br>
+
+        <label for="credits">Credits:</label>
+        <input type="number" id="credits" min="1" required>
+
+        <br><br>
+            
+        <button type="button" onclick="calculateGPA()">Calculate GPA</button>
+
+        <p id="result"></p>
+    </form>
+    
+    <script>
+        function calculateTotalScore() {
+            var cat1 = parseFloat(document.getElementById('cat1').value);
+            var cat2 = parseFloat(document.getElementById('cat2').value);
+            var quiz1 = parseFloat(document.getElementById('quiz1').value);
+            var quiz2 = parseFloat(document.getElementById('quiz2').value);
+            var da = parseFloat(document.getElementById('da').value);
+            var fat = parseFloat(document.getElementById('fat').value);
+            console.log(quiz1);
+
+            var totalScore = (cat1 + cat2) * 0.3 + quiz1 + quiz2 + da +  fat * 0.40;
+
+            return totalScore;
+        }
+        function calculateGPA(){
+            var grade = calculateTotalScore();
+            var credits = parseInt(document.getElementById('credits').value);
+            var gpa = 0;
+            var gradeLetter='';
+            
+            if (grade >= 90) {
+                gpa = 10;
+                gradeLetter='S';
+            } 
+            else if (grade >= 80) {
+                gpa = 9;
+                gradeLetter='A';
+            } 
+            else if (grade >= 70) {
+                gpa = 8;
+                gradeLetter='B';
+            } 
+            else if (grade >= 60) {
+                gpa = 7;
+                gradeLetter='C';
+            } 
+            else if (grade >= 55) {
+                gpa = 6;
+                gradeLetter='D';
+            } 
+            else if (grade >= 50) {
+                gpa = 5;
+                gradeLetter='E';
+            } 
+            else {
+                gpa = 0;
+                gradeLetter='F';
+            }
+            
+            var result = (gpa * credits) / credits;
+            document.getElementById('result').innerHTML = `<p>Grade Letter: ${gradeLetter}</p>
+<p>GPA: ${result.toFixed(2)}</p>`;
+        }
+    </script>
+</body>
+</html>

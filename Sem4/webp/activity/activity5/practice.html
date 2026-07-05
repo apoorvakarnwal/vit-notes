@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style>
+        #formdiv{
+            padding: 20px;
+            max-width: 500px;
+            margin: 0 auto;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        }
+        input[type="text"],input[type="date"]{
+            width: 100%;
+            padding: 4px 10px;
+            box-sizing: border-box;
+        }
+        #submit{
+            display: flex;
+            justify-content: center;
+        }
+        input[type="submit"]{
+            background-color: greenyellow;
+            border: 1px solid #ccc;
+            padding: 5px 20px;
+            border-radius: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div id="formdiv">
+        <form id="myform" onsubmit="return validate();">
+            <h2>Product Review</h2>
+            <label for="productid">Product id</label>
+            <input type="text" name="productid" id="productid">
+            <br>
+            <br>
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name">
+            <br>
+            <br>
+            <label for="datePurchased">Date purchased: </label>
+            <input type="date" id="datePurchased">
+            <br>
+            <br>
+
+            <label for="rating">Rating: </label>
+            <br>
+            <input onclick="oneRating();" type="radio" name="rating" id="one" value="one">
+            <label for="one">1</label>
+            <br>
+            <input onclick="otherRating();" type="radio" name="rating" id="two" value="two">
+            <label for="two">2</label>
+            <br>
+            <input onclick="otherRating();" type="radio"  name="rating" id="three" value="three">
+            <label for="three">3</label>
+            <br>
+            <input onclick="otherRating();" type="radio" name="rating" id="four" value="four">
+            <label for="four">4</label>
+            <br>
+            <input onclick="otherRating();" type="radio" name="rating" id="five" value="five">
+            <label for="five">5</label>
+            <br>
+            <div id="file"></div>
+
+
+            <br>
+            <label for="age">Age Group</label>
+            <br>
+            <input onclick="funcunder18();" type="checkbox" name="age" id="under18" value="Under 18">
+            <label for="under18">Under 18</label>
+
+            <div id="msg12" style="display: none;">you qualify!!</div>
+            <br>
+            <input  onclick="ageother();"  type="checkbox" name="age" id="b18-30" value="18-30">
+            <label for="b18-30">18-30</label>
+            <br>
+            <input  onclick="ageother();"  type="checkbox" name="age" id="b30-45" value="30-45">
+            <label for="b30-45">30-45</label>
+            <br>
+            <input onclick="ageother();" type="checkbox" name="age" id="over45" value="over 45">
+            <label for="over45">Over 45</label>
+            <br>
+            <br>
+
+
+            <label for="comment">Comments</label>
+            <br>
+            <textarea id="comment" cols="30" rows="10"></textarea>
+            <br><br>
+            <div id="submit">
+                <input type="submit" >
+            </div>
+            
+        </form>
+    </div>
+
+
+    <script>
+        const file=document.getElementById('file');
+        const under18=document.getElementById('under18');
+        function oneRating(){
+            file.innerHTML=`<label for="upload">File Upload: </label>
+            <input type="file" id="upload">`;
+        }
+        function otherRating(){
+            file.innerHTML='';
+        }
+        function funcunder18() {
+            if (under18.checked) {
+                document.getElementById('msg12').style.display = 'block';
+                document.getElementById('msg12').style.color = 'red';
+            } else {
+                document.getElementById('msg12').style.display = 'none';
+            }
+        }
+        function ageother(){
+            document.getElementById('msg12').style.display='none';
+        }
+        
+
+        function validate(){
+            event.preventDefault();
+            const name=document.getElementById('name').value;
+            const productid=document.getElementById('productid').value;
+            const datePurchased=document.getElementById('datePurchased').value;
+            const rating=document.getElementsByName('rating');
+            let frating=false;
+            let ratingVal;
+            for(let i of rating){
+                if(i.checked){
+                    frating=true;
+                    ratingVal=Number(i.value);
+                }
+            }
+            const age=document.getElementsByName('age');
+            let fage=false;
+            let ageval;
+            for(let i of age){
+                if(i.checked){
+                    fage=true;
+                    ageval=i.value;
+                }
+            }
+
+            if(!name || !productid || !datePurchased || frating==false||fage==false){
+                alert("Please fill all the input fields");
+                return false;
+            }
+
+            todaydate=new Date();
+            purchasedate=new Date(datePurchased);
+            console.log(todaydate);
+            console.log(purchasedate);
+
+            if((todaydate.getTime() - purchasedate.getTime())>=14*24*60*60 ){
+                alert("time exceeded 14 days");
+            }
+            const one =document.getElementById('one');
+            if(one.checked){
+                const file=document.getElementById('upload').files[0];
+                console.log(file.size);
+                console.log(file.type);
+                if(file.size>1024*1024){
+                    alert("file size must not be greater than 1mb");
+                }
+                if(file.type !== 'application/pdf'){
+                    alert("file type must be pdf");
+                }
+            }
+            document.getElementById('myform').reset();
+            return true;
+        }
+    </script>
+</body>
+</html>

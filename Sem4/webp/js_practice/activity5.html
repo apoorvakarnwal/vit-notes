@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #myform{
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            margin: 50px auto;
+            background-color: rgba(12, 235, 235, 0.697);
+        }
+    </style>
+</head>
+<body>
+    <form id="myform" onsubmit="return validate();">
+        <label for="name">Name: </label>
+        <input type="text" name="name" id="name">
+        <br><br>
+
+        <label for="rating">Rating: </label>
+        <br>
+        <input type="radio" name="rating" id="one" onclick="ratingval();">
+        <label for="one">1</label>
+        <br>
+        <input type="radio" name="rating" id="two" onclick="ratingval();">
+        <label for="two">2</label>
+        <br>
+        <input type="radio" name="rating" id="three" onclick="ratingval();">
+        <label for="three">3</label>
+        <br>
+        <input type="radio" name="rating" id="four"  onclick="ratingval();">
+        <label for="four">4</label>
+        <br>
+        <div id="boxFile" style="display:none;">
+            <label for="file">Upload File: </label>
+            <input type="file" name="file" id="file">
+        </div>
+  
+        <br>
+        <br>
+
+    
+        <label for="date">Date: </label>
+        <input type="date" name="date" id="date">
+        <br>
+        <br>
+        <input type="submit" name="submit" id="submit" value="submit">
+    </form>
+
+    <script>
+
+        var name=document.getElementById("name").value;
+        var ratings = document.getElementsByName("rating");
+
+        function ratingval(){
+            var age=0;
+            for(let i=0;i<4;i++){
+                if(ratings[i].checked){
+                    age=i+1;
+                    break;
+                }
+            }
+            if(age!=1){
+                document.getElementById("boxFile").style.display="none";
+            }
+            if(age===1){
+                document.getElementById("boxFile").style.display= "block";
+            }
+            console.log(age);
+        }
+
+        
+
+        function validate(){
+            var date=document.getElementById("date").value;
+            event.preventDefault();
+            var dateNow= new Date();
+            var dateSelected=new Date(date);
+            var timeNow=dateNow.getTime();
+            var timeSelected=dateSelected.getTime();
+            console.log(timeNow,timeSelected);
+            if(timeNow-timeSelected<0){
+                alert("time hasnt happened");
+                console.log("futuer");
+                return false;
+            }
+            else if((timeNow-timeSelected)>(1000*3600*24*14)){
+                console.log("fr14");
+                alert("not within 14 days");
+                return false;
+            }
+            return true
+        }
+
+    </script>
+</body>
+</html>
