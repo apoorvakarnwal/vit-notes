@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Portfolio - Apoorva Karnwal</title>
+
+    <style>
+        body {
+        font-family: Arial, Helvetica, sans-serif;
+        padding: 15px;
+        background-color: #eae7d7;
+    }
+
+    .heading,
+    .sub-heading,
+    .project,
+    .project img,
+    p {
+        opacity: 0;
+        animation: fadeIn 1s ease-in-out forwards;
+    }
+    .heading {
+        font-size: 32px;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+    .sub-heading {
+        font-size: 26px;
+        font-weight: bold;
+    }
+    .project {
+        margin-bottom: 30px;
+    }
+    .display {
+        margin-top: 80px;
+    }
+    p {
+        text-align: justify;
+    }
+    .project img {
+        height: 315px;
+        border-radius: 5px;
+        width: 50%;
+    }
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+    </style>
+     <link rel="stylesheet" href="menu.css">
+</head>
+<body>
+    <div class="menu">
+        <div class="sub-menu">
+            <div class="left-menu">
+                <a href="index.html">Apoorva Karnwal</a>
+            </div>
+            <div class="center-menu">
+                <a href="about.html">About Me</a>
+                <a href="portfolio.html">Portfolio</a>
+                <a href="skills.html">Skills</a>
+                <a href="testimonials.html">Testimonials</a>
+            </div>
+        </div>
+        <div class="right-menu">
+            <a class="logo-link" href="https://github.com/apoorvakarnwal"><img class="logo-img" src="github-logo.png"></a>
+            <a class="logo-link" href="https://www.linkedin.com/in/apoorva-karnwal/"><img class="logo-img" src="linked-inlogo.png"></a>
+            <a class="resume" href="resume.html">Resume</a>
+        </div>
+    </div>
+
+    <div class="display">
+        <p class="heading">My Portfolio</p>
+
+        <div class="project">
+            
+            <p class="sub-heading">Project 1: YouTube Clone Website (Layout)</p>
+            <p>This project lays out the structure for a YouTube-inspired website. At the top, a header section contains the YouTube logo, a search bar with
+                search and voice search icons, and icons for content uploading and notifications. A sidebar navigation menu shows the different sections of 
+                YouTube like Home, Shorts, Subscriptions, and Your Library. The main section of the page shows video previews using CSS-grids , each featuring a 
+                thumbnail image, video title, channel name, view count, and upload date. These previews are clickable, leading to the corresponding video 
+                URLs. Overall, this layout provides users with familiar functionalities found on YouTube, content discovery, and interaction within the platform.
+            </p> 
+            <img src="project1.png" alt="Project 1 Screenshot">
+            <br>
+            <a target="_blank" href="/Users/karnwalpoorva23/Downloads/WEBD/1projects/youtube/youtube.html">Redirect to Webpage</a>
+
+        </div>
+
+        <div class="project">
+            <p class="sub-heading">Project 2: Calculator Website</p>
+            <p>
+                This project represents a simple calculator web page. It allows users to perform basic arithmetic operations such as
+                 addition, subtraction, multiplication, and division, along with parentheses for grouping and percentage calculation. Users
+                 can input their calculations using buttons on the interface, and the result is displayed dynamically below the buttons. The
+                  design features various button styles to differentiate different types of operations and inputs.</p>
+            <img src="project2.png" alt="Project 2 Screenshot">
+            <br>
+            <a target="_blank" href="/Users/karnwalpoorva23/Downloads/WEBD/1projects/calculator.html">Redirect to Webpage</a>
+        </div>
+
+        <div class="project">
+            <p class="sub-heading">Project 3: Todo List</p>
+            <p>This projects represents a simple Todo List web application. It presents a user interface with an input grid where 
+                users can input the name and due date of their tasks, along with an "Add" button to include the task in the list. 
+                The list of tasks is displayed below the input grid. The functionality for managing tasks, such as adding them to 
+                the list, is handled using JavaScript, while the visual styling is provided by an external CSS.
+            </p>
+            <img src="project3.png" alt="Project 3 Screenshot">
+            <br>
+            <a target="_blank" href="/Users/karnwalpoorva23/Downloads/WEBD/1supersimpledev/JavaScript/12-todolist.html">Redirect to Webpage</a>
+        </div>
+    </div>
+</body>
+</html>

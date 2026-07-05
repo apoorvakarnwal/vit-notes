@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Me - Apoorva Karnwal</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 15px;
+            background-color: #eae7d7;
+        }
+        .text-area{
+            display: flex;
+            align-items: start;
+        }
+        .contact-form{
+            margin-top: 80px;
+        }
+    </style>
+    <link rel="stylesheet" href="menu.css">
+</head>
+<body>
+    <div class="menu">
+        <div class="sub-menu">
+            <div class="left-menu">
+                <a href="index.html">Apoorva Karnwal</a>
+            </div>
+            <div class="center-menu">
+                <a href="about.html">About Me</a>
+                <a href="portfolio.html">Portfolio</a>
+                <a href="skills.html">Skills</a>
+                <a href="testimonials.html">Testimonials</a>
+            </div>
+        </div>
+        <div class="right-menu">
+            <a class="logo-link" href="https://github.com/apoorvakarnwal"><img class="logo-img" src="github-logo.png"></a>
+            <a class="logo-link" href="https://www.linkedin.com/in/apoorva-karnwal/"><img class="logo-img" src="linked-inlogo.png"></a>
+            <a class="resume" href="resume.html">Resume</a>
+        </div>
+    </div>
+    <section class="contact-form">
+        <h2>Get in Touch</h2>
+        <form action="submit_contact_form.php" method="POST"> <!-- Replace "submit_contact_form.php" with your form handling script -->
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required>
+            <br>
+            <br>
+
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" required>
+            <br>
+            <br>
+
+            <div class="text-area">
+                <label for="message">Your Message:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <br>
+            <br>
+
+            <input type="submit" value="Submit">
+        </form>
+    </section>
+    <section class="contact-info">
+        <h2>Contact Information</h2>
+        <p>Email: <a href="mailto:karnwalapoorva@gmail.com">karnwalapoorva@gmail.com</a></p>
+        <p>Social Media:
+            <a href="https://www.linkedin.com/in/apoorva-karnwal/">LinkedIn</a>,
+            <a href="https://www.instagram.com/">Instagram</a>,
+        </p>
+    </section>
+</body>
+</html>

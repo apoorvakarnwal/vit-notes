@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Athelete Training Camp Form</title>
+    <link rel="stylesheet" href="./test2.css">
+</head>
+<body>
+    
+    <form onsubmit="calculateFee(); return false;">
+        <p class="heading h1">Athelete Training Camp</p>
+        <p class="heading h2">Registration Form</p>
+        <label for="fname">Parent Name:</label><br><br>
+        <input style="width: 220px;" type="text" id="fname" name="fname" placeholder="First">
+        <input style="width: 220px;"  type="text" id="lname" name="lname" placeholder="Last"><br><br><br>
+
+        <label for="fname">Athelete Name:</label><br><br>
+        <input style="width: 220px;"  type="text" id="afname" name="afname" placeholder="First">
+        <input style="width: 220px;"  type="text" id="alname" name="alname" placeholder="Last"><br><br><br>
+        
+        <label for="email">Email address:</label><br><br>
+        <input class="full" type="email" id="email" name="email"><br><br><br>
+
+        <label for="mobile">Phone number:</label><br><br>
+        <input class="full" type="tel" id="mobile" maxlength="10" name="mobile" oninput="maskPhoneNumber()"><br><br><br>
+
+        <label for="Age-Time">Age and time:</label><br><br>
+
+        <input type="radio" id="younger" name="Age-Time" value="younger">
+        <label for="younger">11 years and younger - 5 - 6:30 pm</label><br><br>
+
+        <input type="radio" id="older" name="Age-Time" value="older">
+        <label for="older">12 years and older - 6:30 - 7:45 pm</label><br><br><br>
+        
+        <button style="margin-left: 120px;" id="submit-button" type="submit">SUBMIT FORM</button>
+    </form>
+    <p id="confirmation"></p>
+    <script src="./test2.js"></script>
+</body>
+</html>

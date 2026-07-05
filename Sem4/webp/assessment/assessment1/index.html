@@ -1,0 +1,215 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Apoorva Karnwal</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 15px;
+            margin-top: 0px;
+            background-color: #eae7d7;
+        }
+        img{
+            width: 100%;
+            height: auto;
+        }
+        .photo-div{
+            width: 550px;
+            margin-right: 20px;
+        }
+        .content{
+            margin-top: 80px;
+            display: flex;
+
+        }
+        .info{
+            padding-top: 14%;
+            margin-left: 40px;
+        }
+        #name{
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+        #school{
+            font-size: 18px;
+        }
+        #contact-button{
+            text-align: center;
+            margin-top: 40px;
+        }
+        #contact-link{
+            border: 2px solid white;
+            padding: 5px 12px;
+            font-size: 18px;
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+    <link rel="stylesheet" href="menu.css">
+</head>
+<body>
+    <div class="menu">
+        <div class="sub-menu">
+            <div class="left-menu">
+                <a href="index.html">Apoorva Karnwal</a>
+            </div>
+            
+            <div class="center-menu">
+                <a href="about.html">About Me</a>
+                <a href="portfolio.html">Portfolio</a>
+                <a href="skills.html">Skills</a>
+                <a href="testimonials.html">Testimonials</a>
+            </div>
+        </div>
+        <div class="right-menu">
+            <a class="logo-link" href="https://github.com/apoorvakarnwal"><img class="logo-img" src="github-logo.png"></a>
+            <a class="logo-link" href="https://www.linkedin.com/in/apoorva-karnwal/"><img class="logo-img" src="linked-inlogo.png"></a>
+            <a class="resume" href="resume.html">Resume</a>
+        </div>
+    </div>
+    <div class="content">
+        <div class="photo-div">
+            <img src="mee2.png" alt="Apoorva Karnwal photo">
+        </div>
+        
+        <div class="info">
+            <p id="name">My name is Apoorva Karnwal.</p>
+            <p id="school">I am currently pursuing Bachelor's in Computer Science at VIT University.</p>
+            <p id="contact-button"><a href="contact.html" id="contact-link">Contact me</a></p>
+        </div>
+    </div>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Apoorva Karnwal</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 15px;
+            margin-top: 0px;
+            background-color: #eae7d7;
+            animation: fadeInAnimation 1s ease-in-out;
+        }
+        @keyframes fadeInAnimation {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        img{
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+            animation: fadeInImage 1s ease-in-out;
+        }
+        @keyframes fadeInImage {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        .photo-div{
+            width: 560px;
+            margin-right: 20px;
+            overflow: hidden;
+            animation: slideInPhoto 1s ease-in-out;
+        }
+        @keyframes slideInPhoto {
+            0% { transform: translateX(-50px); opacity: 0; }
+            100% { transform: translateX(0); opacity: 1; }
+        }
+        .content{
+            margin-top: 80px;
+            display: flex;
+            align-items: center;
+            animation: slideInContent 1s ease-in-out;
+        }
+        @keyframes slideInContent {
+            0% { transform: translateY(-50px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+        .info{
+            padding-top: 4%;
+            margin-left: 40px;
+            animation: fadeInInfo 1s ease-in-out;
+        }
+        @keyframes fadeInInfo {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        #name{
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 25px;
+            padding-left: 20px;
+            animation: scaleName 1s ease-in-out;
+        }
+        @keyframes scaleName {
+            0% { transform: scale(0.8); }
+            100% { transform: scale(1); }
+        }
+        #school{
+            font-size: 18px;
+            animation: fadeInSchool 1s ease-in-out;
+        }
+        @keyframes fadeInSchool {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        #contact-button{
+            text-align: center;
+            margin-top: 40px;
+
+        }
+        #contact-link{
+            border: 2px solid white;
+            padding: 5px 12px;
+            font-size: 18px;
+            text-decoration: none;
+            color: black;
+            transition: background-color 0.3s ease-in-out;
+        }
+        #contact-link:hover{
+            background-color: #0562c7;
+            color: white;
+            opacity: 0.8;
+        }
+    </style>
+    <link rel="stylesheet" href="menu.css">
+</head>
+<body>
+    <div class="menu">
+        <div class="sub-menu">
+            <div class="left-menu">
+                <a href="index.html">Apoorva Karnwal</a>
+            </div>
+            
+            <div class="center-menu">
+                <a href="about.html">About Me</a>
+                <a href="portfolio.html">Portfolio</a>
+                <a href="skills.html">Skills</a>
+                <a href="testimonials.html">Testimonials</a>
+            </div>
+        </div>
+        <div class="right-menu">
+            <a class="logo-link" href="https://github.com/apoorvakarnwal"><img class="logo-img" src="github-logo.png"></a>
+            <a class="logo-link" href="https://www.linkedin.com/in/apoorva-karnwal/"><img class="logo-img" src="linked-inlogo.png"></a>
+            <a class="resume" href="resume.html">Resume</a>
+        </div>
+    </div>
+    <div class="content">
+        <div class="photo-div">
+            <img src="mee2.png" alt="Apoorva Karnwal photo">
+        </div>
+        
+        <div class="info">
+            <p id="name">My name is Apoorva Karnwal.</p>
+            <p id="school">I am currently pursuing Bachelor's in Computer Science at VIT University.</p>
+            <p id="contact-button"><a href="contact.html" id="contact-link">Contact me</a></p>
+        </div>
+    </div>
+</body>
+</html>
